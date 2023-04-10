@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import PokemonList from "./PokemonList";
 
 export default function App() {
   const [shown, setShown] = useState(true);
@@ -6,13 +7,6 @@ export default function App() {
   function handleToggle() {
     setShown(!shown);
   }
-
-  useEffect(() => {
-    // Get Dashboard Data:
-    fetch("http://localhost:8080/api/dashboard")
-      .then((res) => res.json())
-      .then((res) => console.log({ res }));
-  });
 
   return (
     <div>
@@ -46,6 +40,7 @@ export default function App() {
 
       <hr />
       <FaqAccordion />
+      <PokemonList />
     </div>
   );
 }
@@ -83,6 +78,11 @@ function FaqAccordion() {
       id: "4",
       question: "Bahasa arabnya batere?",
       answer: "Al-kaline",
+    },
+    {
+      id: "5",
+      question: "Hewan-hewan apa yang ternyata bersaudara?",
+      answer: "Katak Beradik",
     },
   ];
 
